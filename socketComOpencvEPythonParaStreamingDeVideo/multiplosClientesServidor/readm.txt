@@ -1,0 +1,3 @@
+1º - executar arquivo servidor.py
+2º - executar arquivo cacheServer.py
+3º - executar arquivo cliente.py
