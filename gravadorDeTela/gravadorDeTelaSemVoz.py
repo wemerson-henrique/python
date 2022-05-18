@@ -10,28 +10,10 @@ try:
     import numpy as np
 except:
     print("Erro: import numpy as np")
-
-# resolucao = (1920,1080)
-# tipoDeArquivoDoVideo = cv.VideoWriter_fourcc(*'XVID')
-# nomeDoArquivo = "Teste01.avi"
-# fps = 20.0
-# out = cv.VideoWriter(nomeDoArquivo, tipoDeArquivoDoVideo, fps, resolucao)
-
-# #exibe gravação tempo real
-# cv.namedWindow("Live", cv.WINDOW_NORMAL)
-# cv.resizeWindow("Live",480,270)
-
-# while True:
-#     img = pyautogui.screenshot()
-#     frame = np.array(img)
-#     frame = cv.cvtColor(frame, cv.COLOR_BGR2RGB) 
-#     out.write(frame)
-#     cv.imshow("Live",frame)
-#     if cv.waitKey(1) == ord('q'):
-#         break
-
-# out.release()
-# cv.destroyAllWindows()
+try:
+    from datetime import datetime
+except:
+    print("Erro: from datetime import datetime")
 
 
 # display screen resolution, get it using pyautogui itself
@@ -41,7 +23,8 @@ fourcc = cv2.VideoWriter_fourcc(*"XVID")
 # frames per second
 fps = 12.0
 # create the video write object
-out = cv2.VideoWriter("output.avi", fourcc, fps, (SCREEN_SIZE))
+nomeDoVideo = "video.avi"
+out = cv2.VideoWriter(nomeDoVideo, fourcc, fps, (SCREEN_SIZE))
 # the time you want to record in seconds
 record_seconds = 10
 
