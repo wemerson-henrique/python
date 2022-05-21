@@ -2,11 +2,13 @@ import socket, cv2, pickle, struct
 
 #criando o socket
 client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-host_ip = '192.168.1.5'
+host_ip = '172.18.96.1'
 port = 9999
 client_socket.connect((host_ip,port))# a tuple
 data = b""
 payload_size = struct.calcsize("Q")
+cv2.namedWindow("Live", cv2.WINDOW_NORMAL)
+cv2.resizeWindow("Live",480,270)
 while True:
     while len(data) < payload_size:
         packet = client_socket.recv(4*1024)# 4k
@@ -21,7 +23,7 @@ while True:
     frame_data = data[:msg_size]
     data = data[msg_size:]
     frame = pickle.loads(frame_data)
-    cv2.imshow("Recebido",frame)
+    cv2.imshow("Live",frame)
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q'):
         break
