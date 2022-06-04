@@ -1,3 +1,4 @@
 python -m unittest test_teste1.py -> executa arquivo de teste
+python -m unittest discover -s testes -> executa todos os testes da pasta "testes"
 
 python -m unittest discover <test_directory> # or python -m unittest discover -s <directory> -p '*_test.py'    -> executa todos os arquivos de teste
